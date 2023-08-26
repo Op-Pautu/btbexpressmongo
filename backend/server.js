@@ -1,12 +1,11 @@
 const express = require('express')
 const dotenv = require('dotenv').config()
 const port = process.env.PORT || 5000
-
+const goalRoutes = require('./routes/goalRoutes')
 const app = express()
 
-app.get('/api/goals', (req, res) => {
-    res.json({message: 'Get goals'})
-})
+app.use('/api/goals', goalRoutes)
+
 app.get('/', (req, res) => {
     res.json({message: 'welcome'})
 })
